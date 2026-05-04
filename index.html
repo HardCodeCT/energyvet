@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="logo.png">
+<title>Energy Veterinary and Agro-Allied Services</title>
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Energy Veterinary and Agro-Allied Services">
+<meta property="og:description" content="Expert veterinary and agro-allied services for your pets, livestock, and farm — delivered by qualified professionals you can trust.">
+<meta property="og:image" content="https://energyvet.com.ng/images/logo.png">
+<meta property="og:url" content="https://energyvet.com.ng/">
+<meta property="og:type" content="website">
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Energy Veterinary and Agro-Allied Services">
+<meta name="twitter:description" content="Expert veterinary and agro-allied services for your pets, livestock, and farm — delivered by qualified professionals you can trust.">
+<meta name="twitter:image" content="https://energyvet.com.ng/images/logo.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --g1: #1a5c28;
+    --g2: #2e8b40;
+    --g3: #3aaf52;
+    --g4: #e8f5ec;
+    --g5: #c5e8ce;
+    --dark: #0e3a18;
+    --white: #fff;
+    --text: #1a2e1d;
+    --muted: #4a6651;
+    --border: #c5e0cb;
+    --bg: #f4fbf5;
+  }
+  html { }
+  body { font-family: 'Nunito Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+  a { text-decoration: none; color: inherit; }
+
+  /* BUTTON */
+  .btn {
+    display: inline-block; background: var(--g2); color: #fff;
+    font-weight: 700; font-size: .875rem; padding: 11px 26px;
+    border-radius: 30px; letter-spacing: .03em; transition: background .2s, transform .15s;
+  }
+  .btn:hover { background: var(--g1); transform: translateY(-1px); }
+  .btn.outline { background: transparent; border: 2px solid #fff; color: #fff; }
+  .btn.outline:hover { background: #fff; color: var(--g1); transform: translateY(-1px); }
+  .btn.dark { background: var(--g1); }
+  .btn.dark:hover { background: var(--dark); }
+  .btn.green3 { background: var(--g3); }
+
+  /* NAV */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: #fff; border-bottom: 1px solid var(--border);
+    padding: 0 40px; display: flex; align-items: center;
+    justify-content: space-between; height: 70px;
+    box-shadow: 0 2px 12px rgba(14,58,24,.07);
+  }
+  .logo-wrap { display: flex; align-items: center; gap: 12px; }
+  .logo-img { height: 52px; width: auto; }
+  .logo-fallback {
+    width: 52px; height: 52px; background: var(--g4);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 26px;
+  }
+  .logo-text { line-height: 1.25; }
+  .logo-text strong { font-size: .95rem; font-weight: 800; color: var(--g1); display: block; }
+  .logo-text span { font-size: .75rem; color: var(--muted); }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a { font-size: .85rem; font-weight: 600; transition: color .2s; }
+  .nav-links a:hover { color: var(--g1); }
+
+  /* ─── HERO ───────────────────────────────────────────── */
+  /*
+   * DOM order: hero-visual FIRST, hero-text SECOND.
+   * Large screens: visual = left col, text = right col.
+   * Mobile: single column → visual on top, text below.
+   */
+  .hero {
+    background: var(--g1); color: #fff;
+    display: grid; grid-template-columns: 1fr 1fr; min-height: 500px;
+  }
+  .hero-text {
+    padding: 72px 56px; display: flex;
+    flex-direction: column; justify-content: center; gap: 20px;
+  }
+  .label {
+    font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+    opacity: .65; font-weight: 700;
+  }
+  .hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.2; max-width: 380px;
+  }
+  .hero-text p { font-size: .97rem; opacity: .82; max-width: 360px; line-height: 1.65; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-visual {
+    position: relative; overflow: hidden; min-height: 500px;
+  }
+  .hero-visual img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .img-placeholder {
+    width: 100%; height: 100%; min-height: inherit;
+    background: linear-gradient(135deg, #2e8b40, #1a5c28);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; color: rgba(255,255,255,.5);
+  }
+  .img-placeholder .ph-icon {
+    width: 56px; height: 56px; border: 2px dashed rgba(255,255,255,.4);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+  }
+  .img-placeholder .ph-icon svg { width: 28px; height: 28px; fill: none; stroke: rgba(255,255,255,.5); stroke-width: 1.5; }
+  .img-placeholder span { font-size: .75rem; font-weight: 600; letter-spacing: .06em; }
+  .hero-badge {
+    position: absolute; bottom: 36px; left: 36px; z-index: 2;
+    background: rgba(255,255,255,.15); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.2); border-radius: 12px;
+    padding: 12px 18px; display: flex; align-items: center; gap: 10px;
+  }
+  .hero-badge .dot { width: 10px; height: 10px; background: #4ade80; border-radius: 50%; }
+  .hero-badge span { font-size: .8rem; color: #fff; font-weight: 600; }
+
+  /* STATS */
+  .stats {
+    background: var(--g2); display: grid;
+    grid-template-columns: repeat(4,1fr);
+  }
+  .stat { padding: 28px 32px; border-right: 1px solid rgba(255,255,255,.15); text-align: center; }
+  .stat:last-child { border-right: none; }
+  .stat strong { display: block; font-size: 1.8rem; font-weight: 800; color: #fff; }
+  .stat span { font-size: .8rem; color: rgba(255,255,255,.7); }
+
+  /* ABOUT */
+  .about { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg); }
+  .about-visual {
+    min-height: 360px; position: relative; overflow: hidden;
+  }
+  .about-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about-visual .img-placeholder { background: linear-gradient(135deg, var(--g4), var(--g5)); }
+  .about-visual .img-placeholder .ph-icon { border-color: rgba(46,139,64,.4); }
+  .about-visual .img-placeholder .ph-icon svg { stroke: rgba(46,139,64,.6); }
+  .about-visual .img-placeholder span { color: rgba(46,139,64,.7); }
+  .about-text { padding: 64px 56px; display: flex; flex-direction: column; justify-content: center; }
+  .about-text p { font-size: .97rem; color: var(--muted); line-height: 1.7; max-width: 440px; margin-bottom: 16px; }
+
+  /* WHY US */
+  .why { display: grid; grid-template-columns: 1fr 1fr; }
+  .why-content { background: var(--g1); padding: 64px 56px; color: #fff; }
+  .why-content h2 { color: #fff; margin-bottom: 36px; font-family: 'Playfair Display', serif; font-size: 2rem; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .why-item {
+    background: rgba(255,255,255,.08); border-radius: 14px; padding: 20px;
+    border: 1px solid rgba(255,255,255,.1);
+  }
+  .why-icon { font-size: 1.8rem; margin-bottom: 10px; display: block; }
+  .why-item h4 { font-size: .9rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+  .why-item p { font-size: .82rem; color: rgba(255,255,255,.7); line-height: 1.55; }
+  .why-visual {
+    min-height: 360px; position: relative; overflow: hidden;
+  }
+  .why-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .why-visual .img-placeholder { background: var(--g4); }
+  .why-visual .img-placeholder .ph-icon { border-color: rgba(46,139,64,.4); }
+  .why-visual .img-placeholder .ph-icon svg { stroke: rgba(46,139,64,.6); }
+  .why-visual .img-placeholder span { color: rgba(46,139,64,.7); }
+
+  /* SERVICES */
+  .services { padding: 80px 56px; background: var(--bg); }
+  .services-head { margin-bottom: 40px; }
+  .services-head p.body { color: var(--muted); font-size: .97rem; max-width: 560px; margin-top: 10px; line-height: 1.65; }
+  .srv-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+  .srv-card {
+    background: #fff; border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 18px rgba(14,58,24,.06);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .srv-card:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(14,58,24,.12); }
+  .srv-card-top {
+    height: 18rem; position: relative; overflow: hidden;
+  }
+  .srv-card-top img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .srv-card-top .img-placeholder { background: var(--g4); min-height: 180px; }
+  .srv-card-top .img-placeholder .ph-icon { border-color: rgba(46,139,64,.4); }
+  .srv-card-top .img-placeholder .ph-icon svg { stroke: rgba(46,139,64,.6); }
+  .srv-card-top .img-placeholder span { color: rgba(46,139,64,.7); }
+  .srv-card-top::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--g2); z-index: 1;
+  }
+  .srv-card-body { padding: 20px 22px 24px; }
+  .srv-card-body h3 { font-size: 1rem; color: var(--g1); margin-bottom: 8px; }
+  .srv-card-body p { font-size: .87rem; color: var(--muted); line-height: 1.6; }
+  .srv-cta { text-align: center; margin-top: 44px; }
+
+  /* TESTIMONIAL */
+  .testimonials { background: #fff; padding: 80px 56px; }
+  .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 36px; }
+  .test-card {
+    background: var(--bg); border-radius: 16px; padding: 28px 24px;
+    border: 1px solid var(--border);
+  }
+  .stars { color: var(--g2); font-size: 1.1rem; margin-bottom: 12px; }
+  .test-card p { font-size: .9rem; color: var(--muted); line-height: 1.65; margin-bottom: 20px; font-style: italic; }
+  .test-author { display: flex; align-items: center; gap: 10px; }
+  .avatar {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--g2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .85rem; font-weight: 800; color: #fff; flex-shrink: 0;
+  }
+  .test-author strong { font-size: .88rem; color: var(--g1); display: block; }
+  .test-author span { font-size: .78rem; color: var(--muted); }
+
+  /* FAQ */
+  .faq { padding: 80px 56px; background: var(--bg); }
+  .faq h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 36px; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 18px 0; }
+  .faq-q {
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer; font-weight: 700; font-size: .97rem; color: var(--g1); gap: 16px;
+  }
+  .faq-q .arr { color: var(--g2); font-size: 1.1rem; transition: transform .2s; flex-shrink: 0; }
+  .faq-item.open .arr { transform: rotate(180deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden; transition: max-height .35s, padding .2s;
+    font-size: .92rem; color: var(--muted); line-height: 1.7;
+  }
+  .faq-item.open .faq-a { max-height: 300px; padding-top: 12px; }
+
+  /* MORE */
+  .more { padding: 80px 56px; background: #fff; }
+  .more h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 36px; }
+  .more-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px; }
+  .more-card {
+    background: var(--bg); border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--border); transition: transform .2s; cursor: pointer;
+  }
+  .more-card:hover { transform: translateY(-3px); }
+  .more-card-img { height: 120px; position: relative; overflow: hidden; }
+  .more-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .more-card-img .img-placeholder { background: var(--g4); min-height: 120px; }
+  .more-card-img .img-placeholder .ph-icon { border-color: rgba(46,139,64,.4); width: 40px; height: 40px; }
+  .more-card-img .img-placeholder .ph-icon svg { width: 20px; height: 20px; stroke: rgba(46,139,64,.6); }
+  .more-card-img .img-placeholder span { font-size: .65rem; color: rgba(46,139,64,.7); }
+  .more-card-label { padding: 12px 10px; text-align: center; font-size: .82rem; font-weight: 800; color: var(--g1); }
+
+  /* CTA STRIP */
+  .cta-strip {
+    background: var(--g1); color: #fff; padding: 72px 56px;
+    display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 32px;
+  }
+  .cta-strip h2 { font-family: 'Playfair Display', serif; color: #fff; font-size: 2rem; margin-bottom: 8px; }
+  .cta-strip p { color: rgba(255,255,255,.75); font-size: .97rem; }
+
+  /* FOOTER */
+  footer { background: var(--dark); color: rgba(255,255,255,.65); padding: 56px 56px 32px; }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+    padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.1); margin-bottom: 28px;
+  }
+  .footer-logo-text { margin-bottom: 16px; }
+  .footer-logo-text strong { font-size: 1rem; font-weight: 800; color: #fff; display: block; margin-bottom: 4px; }
+  .footer-logo-text span { font-size: .82rem; }
+  .footer-desc { font-size: .85rem; line-height: 1.65; margin-bottom: 20px; }
+  .badges { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge {
+    background: rgba(255,255,255,.1); border-radius: 6px;
+    padding: 5px 12px; font-size: .72rem; color: rgba(255,255,255,.75); font-weight: 600;
+  }
+  .footer-col h5 { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: #fff; font-weight: 800; margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: .87rem; color: rgba(255,255,255,.6); margin-bottom: 10px; transition: color .2s; }
+  .footer-col a:hover { color: #fff; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: .78rem; }
+  .footer-bottom a { color: rgba(255,255,255,.5); margin-left: 16px; }
+  .footer-bottom a:hover { color: #fff; }
+
+  /* ─── CONTACT RACK ────────────────────────────────────────
+   * Fixed floating dock, bottom-left, transparent background.
+   * Desktop (≥ 961px): horizontal row.
+   * Mobile  (≤ 960px): vertical column.
+   * Smartsupp widget sits bottom-right (its own position).
+   * ──────────────────────────────────────────────────────── */
+  .contact-rack {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 9998;          /* just below Smartsupp's z-index */
+    display: flex;
+    flex-direction: row;    /* horizontal on large screens */
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    pointer-events: auto;
+  }
+
+  .contact-rack a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: transparent;
+    transition: transform .2s ease, filter .2s ease;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
+
+  .contact-rack a:hover,
+  .contact-rack a:focus-visible {
+    transform: scale(1.18) translateY(-2px);
+    filter: drop-shadow(0 4px 14px rgba(0,0,0,0.35));
+  }
+
+  .contact-rack img {
+    width: 52px;
+    height: 52px;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ─── RESPONSIVE ──────────────────────────────────────── */
+  @media (max-width: 960px) {
+    /* Contact rack: vertical column on mobile */
+    .contact-rack {
+      flex-direction: column;
+      bottom: 20px;
+      left: 16px;
+      gap: 8px;
+    }
+    .contact-rack a { width: 46px; height: 46px; }
+    .contact-rack img { width: 46px; height: 46px; }
+
+    /* Hero: single column; visual stacks on top of text */
+    .hero {
+      grid-template-columns: 1fr;
+    }
+    /* hero-visual is first child in DOM → naturally appears on top */
+    .hero-visual {
+      min-height: 260px;
+      display: block; /* SHOW on mobile — was incorrectly hidden before */
+    }
+    .hero-text { padding: 48px 28px; }
+
+    /* Other layout fixes */
+    .about, .why, .cta-strip { grid-template-columns: 1fr; }
+    .about-visual, .why-visual { min-height: 280px; display: block; }
+    .stats { grid-template-columns: repeat(2,1fr); }
+    .srv-grid, .test-grid { grid-template-columns: 1fr 1fr; }
+    .more-grid { grid-template-columns: repeat(3,1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .cta-strip { text-align: center; justify-items: center; padding: 56px 32px; }
+    header { padding: 0 20px; }
+    .nav-links .nav-hidden { display: none; }
+    .about-text, .why-content { padding: 48px 32px; }
+    .services, .testimonials, .faq, .more { padding: 56px 32px; }
+    footer { padding: 48px 32px 28px; }
+  }
+
+  @media (max-width: 600px) {
+    .srv-grid, .test-grid { grid-template-columns: 1fr; }
+    .more-grid { grid-template-columns: repeat(2,1fr); }
+    .footer-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2,1fr); }
+  }
+
+  /* ─── CUSTOM SCROLLBAR ────────────────────────────────── */
+  html {
+    scrollbar-color: var(--g2) transparent;
+    scrollbar-width: thin;
+  }
+  ::-webkit-scrollbar { width: 7px; }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--g2);
+    border-radius: 99px;
+    border: 1.5px solid transparent;
+    background-clip: content-box;
+    transition: background .2s;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--g1);
+    border-radius: 99px;
+    background-clip: content-box;
+  }
+
+  /* ─── SCROLL-REVEAL (blur ↔ clear) ───────────────────── */
+  .scroll-reveal {
+    transition:
+      filter 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: blur(5px);
+    opacity: 0.45;
+    will-change: filter, opacity;
+  }
+  .scroll-reveal.in-view {
+    filter: blur(0);
+    opacity: 1;
+  }
+
+  /* ─── GENTLE SHIMMER (on stable in-view sections) ─────── */
+  @keyframes gentleShimmer {
+    0%   { opacity: 1;    filter: blur(0) brightness(1); }
+    30%  { opacity: 0.91; filter: blur(0) brightness(1.03); }
+    60%  { opacity: 0.96; filter: blur(0) brightness(0.98); }
+    100% { opacity: 1;    filter: blur(0) brightness(1); }
+  }
+  .scroll-reveal.in-view.shimmer-on {
+    animation: gentleShimmer 4.5s ease-in-out infinite;
+  }
+
+  /* ─── CONTACT RACK — WhatsApp & Gmail icon pulse ──────── */
+  .contact-rack a[href*="wa.me"],
+  .contact-rack a[href^="mailto"] {
+    /* override the base transition */
+    transition:
+      transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1),
+      opacity   0.22s ease,
+      filter    0.38s ease;
+  }
+  .contact-rack a[href*="wa.me"]:hover,
+  .contact-rack a[href^="mailto"]:hover {
+    transform: scale(1.38) translateY(-3px);
+    opacity: 0.82;
+    filter: drop-shadow(0 6px 18px rgba(0,0,0,0.4));
+  }
+  /* Idle idle pulse — slow breathe to draw attention */
+  @keyframes iconBreathe {
+    0%,100% { transform: scale(1);    opacity: 1; }
+    50%      { transform: scale(1.08); opacity: 0.9; }
+  }
+  .contact-rack a[href*="wa.me"] img,
+  .contact-rack a[href^="mailto"] img {
+    animation: iconBreathe 3s ease-in-out infinite;
+  }
+  .contact-rack a[href*="wa.me"]:hover img,
+  .contact-rack a[href^="mailto"]:hover img {
+    animation: none; /* stop breathe while hovered */
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-wrap">
+    <img class="logo-img" src="logo.png" alt="Energy Veterinary Logo"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="logo-fallback" style="display:none">🐾</div>
+    <div class="logo-text">
+      <strong>Energy Veterinary</strong>
+      <span>and Agro-Allied Services</span>
+    </div>
+  </div>
+  <nav class="nav-links">
+    <a href="#about" class="nav-hidden">About</a>
+    <a href="#services" class="nav-hidden">Services</a>
+    <a href="#faq" class="nav-hidden">FAQs</a>
+    <a href="#contact" class="nav-hidden">Contact</a>
+    <a href="#contact" class="btn dark">Find a Vet</a>
+  </nav>
+</header>
+
+<!-- HERO
+     DOM order: hero-visual FIRST → left col on desktop, top on mobile.
+     hero-text SECOND → right col on desktop, bottom on mobile. -->
+<div class="hero scroll-reveal">
+  <div class="hero-visual">
+    <!-- Replace hero-image.png with your actual image file -->
+    <img src="images/hero-image.png" alt="Hero Image"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="img-placeholder" style="display:none">
+      <div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <span>hero-image.png</span>
+    </div>
+    <div class="hero-badge">
+      <div class="dot"></div>
+      <span>Clinic Open Now</span>
+    </div>
+  </div>
+  <div class="hero-text">
+    <p class="label">Professional Animal Care &amp; Farm Services</p>
+    <h1>Expert veterinary care you can trust</h1>
+    <p>Comprehensive animal health and agro-allied services delivered by qualified professionals — for your pets, livestock, and farm.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn outline">Find a Vet</a>
+      <a href="#services" class="btn green3">Our Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats scroll-reveal">
+  <div class="stat"><strong>1,000+</strong><span>Animals Treated</span></div>
+  <div class="stat"><strong>10+</strong><span>Years of Service</span></div>
+  <div class="stat"><strong>6</strong><span>Core Services</span></div>
+  <div class="stat"><strong>100%</strong><span>Qualified Vets</span></div>
+</div>
+
+<!-- ABOUT -->
+<div class="about scroll-reveal" id="about">
+  <div class="about-visual">
+    <!-- Replace about-image.jpg with your actual image file -->
+    <img src="images/about-image.jpg" alt="About Us"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="img-placeholder" style="display:none">
+      <div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <span>about-image.jpg</span>
+    </div>
+  </div>
+  <div class="about-text">
+    <p class="label" style="color:var(--g3);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px">About us</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--g1);margin-bottom:16px;line-height:1.25">A new standard of care for animals</h2>
+    <p>Energy Veterinary and Agro-Allied Services is dedicated to delivering exceptional veterinary and agricultural support from qualified, experienced professionals.</p>
+    <p>We combine modern veterinary medicine with a deep commitment to your animals' wellbeing — whether you're bringing in a beloved pet or managing a large farm operation.</p>
+    <a href="#services" class="btn dark" style="align-self:flex-start;margin-top:8px">Explore our services</a>
+  </div>
+</div>
+
+<!-- WHY US -->
+<div class="why scroll-reveal">
+  <div class="why-content">
+    <h2>Why choose us</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="why-icon">🩺</span>
+        <h4>Expert veterinarians</h4>
+        <p>Qualified professionals delivering personal, attentive care for all animals.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">📅</span>
+        <h4>Easy scheduling</h4>
+        <p>Book appointments by phone or walk in at your convenience anytime.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">📍</span>
+        <h4>Accessible location</h4>
+        <p>Conveniently situated to serve pet owners and farmers across the region.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-icon">🌿</span>
+        <h4>Agro-Allied services</h4>
+        <p>Integrated farm, livestock, and crop advisory services all in one place.</p>
+      </div>
+    </div>
+  </div>
+  <div class="why-visual">
+    <!-- Replace why-image.jpg with your actual image file -->
+    <img src="images/why-image.jpg" alt="Why Choose Us"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="img-placeholder" style="display:none">
+      <div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <span>why-image.jpg</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services scroll-reveal" id="services">
+  <div class="services-head">
+    <p class="label" style="color:var(--g3);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:8px">What we offer</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--g1);margin-bottom:10px">Our services</h2>
+    <p class="body">We provide comprehensive care for all animals — from household pets to livestock and farm animals — with a full suite of agro-allied support services.</p>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-card">
+      <div class="srv-card-top">
+        <img src="images/service-vaccinations.jpg" alt="Vaccinations" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><span>service-vaccinations.jpg</span></div>
+      </div>
+      <div class="srv-card-body">
+        <h3>Vaccinations &amp; Wellness</h3>
+        <p>Routine check-ups, vaccines, and preventive care plans for dogs, cats, and all farm animals.</p>
+      </div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-card-top">
+        <img src="images/service-diagnostics.jpg" alt="Diagnostics" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><span>service-diagnostics.jpg</span></div>
+      </div>
+      <div class="srv-card-body">
+        <h3>Diagnostics &amp; Lab Testing</h3>
+        <p>In-house diagnostic tools, imaging, and laboratory analysis for fast, accurate health assessments.</p>
+      </div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-card-top">
+        <img src="images/service-livestock.jpg" alt="Livestock Care" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><span>service-livestock.jpg</span></div>
+      </div>
+      <div class="srv-card-body">
+        <h3>Livestock Care</h3>
+        <p>Herd health management, disease control, reproductive services, and production support for farms.</p>
+      </div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-card-top">
+        <img src="images/service-agro.jpg" alt="Agro Advisory" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><span>service-agro.jpg</span></div>
+      </div>
+      <div class="srv-card-body">
+        <h3>Agro-Allied Advisory</h3>
+        <p>Expert guidance on farm management, soil health, pest control, and integrated crop-livestock systems.</p>
+      </div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-card-top">
+        <img src="images/service-surgery.jpg" alt="Surgery" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><span>service-surgery.jpg</span></div>
+      </div>
+      <div class="srv-card-body">
+        <h3>Surgery &amp; Urgent Care</h3>
+        <p>Same-day urgent care, surgical procedures, and comprehensive post-operative recovery support.</p>
+      </div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-card-top">
+        <img src="images/service-poultry.jpg" alt="Poultry Care" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><span>service-poultry.jpg</span></div>
+      </div>
+      <div class="srv-card-body">
+        <h3>Poultry &amp; Exotic Care</h3>
+        <p>Specialized care for poultry flocks, birds, reptiles, and other exotic or uncommon animals.</p>
+      </div>
+    </div>
+  </div>
+  <div class="srv-cta">
+    <a href="#contact" class="btn dark">Book an appointment</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials scroll-reveal">
+  <p class="label" style="color:var(--g3);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:8px">What clients say</p>
+  <h2 style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--g1)">Trusted by pet owners &amp; farmers</h2>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p>"The team at Energy Vet treated my dog with so much care and professionalism. I was impressed by how thorough the diagnosis was and how quickly he recovered."</p>
+      <div class="test-author">
+        <div class="avatar">AO</div>
+        <div>
+          <strong>Adaeze Okafor</strong>
+          <span>Pet owner, Aba</span>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p>"Their livestock advisory services transformed how I manage my farm. My herd is healthier, my yields improved, and I finally have a vet I can call anytime."</p>
+      <div class="test-author">
+        <div class="avatar">CE</div>
+        <div>
+          <strong>Chukwuemeka Eze</strong>
+          <span>Farmer, Abia State</span>
+        </div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p>"Fast, knowledgeable, and genuinely passionate about animals. I brought in my poultry for vaccination and the results were outstanding. Highly recommend!"</p>
+      <div class="test-author">
+        <div class="avatar">NN</div>
+        <div>
+          <strong>Ngozi Nwosu</strong>
+          <span>Poultry farmer, Aba</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq scroll-reveal" id="faq">
+  <p class="label" style="color:var(--g3);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px">Help center</p>
+  <h2>Frequently asked questions</h2>
+
+  <div class="faq-item open">
+    <div class="faq-q" onclick="toggle(this)">Do you treat both pets and farm animals? <span class="arr">▾</span></div>
+    <div class="faq-a">Yes — Energy Veterinary and Agro-Allied Services caters to household pets, livestock, poultry, and exotic animals. Our team includes specialists in both small and large animal care, as well as agro-allied advisory services for farms of all sizes.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">Can I book a same-day appointment? <span class="arr">▾</span></div>
+    <div class="faq-a">Yes, same-day and emergency appointments are available depending on clinic capacity. You can call us directly or visit to check availability. Walk-ins are also welcome when time permits.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">What vaccinations do you offer? <span class="arr">▾</span></div>
+    <div class="faq-a">We offer core and non-core vaccines for dogs, cats, cattle, goats, poultry, and more. Our veterinarians will advise on the most appropriate vaccination schedule based on your animal's species, age, and environment.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">Do you provide on-farm visit services? <span class="arr">▾</span></div>
+    <div class="faq-a">Yes, our agro-allied team provides on-farm visits for herd health checks, farm advisory, disease outbreak response, and livestock management consultations. Contact us to schedule a farm visit at a time that works for you.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">Do you have a pharmacy on-site? <span class="arr">▾</span></div>
+    <div class="faq-a">Yes, we stock a range of veterinary medications, dewormers, supplements, and agro-allied inputs. Our team will recommend the right products for your animals' needs after examination.</div>
+  </div>
+</section>
+
+<!-- MORE SERVICES -->
+<section class="more scroll-reveal">
+  <p class="label" style="color:var(--g3);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px">More from us</p>
+  <h2>All-round animal &amp; farm services</h2>
+  <div class="more-grid">
+    <div class="more-card">
+      <div class="more-card-img">
+        <img src="images/more-grooming.jpg" alt="Grooming" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><span>more-grooming.jpg</span></div>
+      </div>
+      <div class="more-card-label">Grooming</div>
+    </div>
+    <div class="more-card">
+      <div class="more-card-img">
+        <img src="images/more-training.jpg" alt="Pet Training" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><span>more-training.jpg</span></div>
+      </div>
+      <div class="more-card-label">Pet Training</div>
+    </div>
+    <div class="more-card">
+      <div class="more-card-img">
+        <img src="images/more-farm.jpg" alt="Farm Advisory" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><span>more-farm.jpg</span></div>
+      </div>
+      <div class="more-card-label">Farm Advisory</div>
+    </div>
+    <div class="more-card">
+      <div class="more-card-img">
+        <img src="images/more-poultry.jpg" alt="Poultry Mgmt" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><span>more-poultry.jpg</span></div>
+      </div>
+      <div class="more-card-label">Poultry Mgmt</div>
+    </div>
+    <div class="more-card">
+      <div class="more-card-img">
+        <img src="images/more-pharmacy.jpg" alt="Pharmacy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="img-placeholder" style="display:none"><div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><span>more-pharmacy.jpg</span></div>
+      </div>
+      <div class="more-card-label">Pharmacy</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip scroll-reveal" id="contact">
+  <div>
+    <p class="label" style="color:rgba(255,255,255,.5);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:8px">Get started</p>
+    <h2>Find a vet near you today!</h2>
+    <p>Visit our clinic or call us to book an appointment for your animal.</p>
+  </div>
+  <a href="tel:+2340000000" class="btn outline">Call us now</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo-text">
+        <strong>Energy Veterinary and Agro-Allied Services</strong>
+        <span>Professional animal health &amp; farm services</span>
+      </div>
+      <p class="footer-desc">Delivering expert veterinary and agro-allied services with passion, professionalism, and care — for every animal and every farm.</p>
+      <div class="badges">
+        <span class="badge">Licensed Veterinary Practice</span>
+        <span class="badge">Agro-Allied Certified</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <a href="#about">About Us</a>
+      <a href="#services">Our Services</a>
+      <a href="#faq">FAQs</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <a href="#">Vaccinations</a>
+      <a href="#">Livestock Care</a>
+      <a href="#">Agro Advisory</a>
+      <a href="#">Surgery &amp; Urgent Care</a>
+      <a href="#">Pharmacy</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact Us</h5>
+      <a href="mailto:info@energyvet.com">info@energyvet.com</a>
+      <a href="tel:+2340000000">+234 000 0000</a>
+      <a href="#">Aba, Abia State, Nigeria</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Energy Veterinary and Agro-Allied Services. All rights reserved.</span>
+    <div>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── CONTACT RACK ──────────────────────────────────────────────────────────
+     ▸ phone.svg   → delegates a phone call to the device via tel:
+     ▸ whatsapp.svg → opens WhatsApp with the number pre-loaded via wa.me
+     ▸ gmail.svg    → opens the device mail client via mailto:
+
+     Replace +2340000000 with your real number (digits only, no spaces/dashes)
+     and info@energyvet.com with your real email address.
+
+     Large screens  (≥ 961px): icons sit in a horizontal row, bottom-left.
+     Small screens  (≤ 960px): icons stack in a vertical column, bottom-left.
+     Smartsupp widget stays bottom-right — no overlap.
+──────────────────────────────────────────────────────────────────────────── -->
+<div class="contact-rack" role="group" aria-label="Contact options">
+
+  <!-- PHONE — delegates to whatever the device uses for calls -->
+  <a href="tel:+2340000000"
+     title="Call us"
+     aria-label="Call us">
+    <img src="images/phone.svg" alt="Call us">
+  </a>
+
+  <!-- WHATSAPP — opens wa.me deep-link; works on mobile app & WhatsApp Web -->
+  <a href="https://wa.me/2340000000"
+     target="_blank"
+     rel="noopener noreferrer"
+     title="Chat on WhatsApp"
+     aria-label="Chat on WhatsApp">
+    <img src="images/whatsapp.svg" alt="WhatsApp">
+  </a>
+
+  <!-- GMAIL / EMAIL — delegates to the device's default mail app -->
+  <a href="mailto:info@energyvet.com"
+     title="Send us an email"
+     aria-label="Send us an email">
+    <img src="images/gmail.svg" alt="Email us">
+  </a>
+
+</div>
+
+<script>
+  /* ── FAQ toggle ─────────────────────────────────────────── */
+  function toggle(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  /* ── Smooth scroll (corrects for sticky header offset) ──── */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const hash = this.getAttribute('href');
+      if (hash === '#') return;
+      const target = document.querySelector(hash);
+      if (!target) return;
+      e.preventDefault();
+      const headerH = document.querySelector('header')?.offsetHeight ?? 70;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerH - 12;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    });
+  });
+
+  /* ── Scroll-reveal: blur ↔ clear via IntersectionObserver ── */
+  const revealEls = document.querySelectorAll('.scroll-reveal');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const el = entry.target;
+      if (entry.isIntersecting) {
+        el.classList.add('in-view');
+        /* After the reveal transition ends, add the shimmer */
+        el.addEventListener('transitionend', function onReveal(evt) {
+          if (evt.propertyName === 'filter') {
+            el.classList.add('shimmer-on');
+            el.removeEventListener('transitionend', onReveal);
+          }
+        });
+      } else {
+        el.classList.remove('in-view');
+        el.classList.remove('shimmer-on');
+      }
+    });
+  }, {
+    root: null,
+    threshold: 0.08,   /* trigger when 8% of section is visible */
+    rootMargin: '0px'
+  });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  /* ── Page-load: first visible section clears after 120ms ── */
+  window.addEventListener('DOMContentLoaded', () => {
+    // A tiny delay lets the browser paint the blurred state first
+    // so the user sees the blur → clear transition on the hero
+    setTimeout(() => {
+      revealEls.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) {
+          el.classList.add('in-view');
+          setTimeout(() => el.classList.add('shimmer-on'), 800);
+        }
+      });
+    }, 120);
+  });
+</script>
+
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'be2bfa8815d1750482840859578d0145456dee7e';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+</body>
+</html>
