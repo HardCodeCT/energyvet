@@ -74,11 +74,6 @@
   .nav-links a:hover { color: var(--g1); }
 
   /* ─── HERO ───────────────────────────────────────────── */
-  /*
-   * DOM order: hero-visual FIRST, hero-text SECOND.
-   * Large screens: visual = left col, text = right col.
-   * Mobile: single column → visual on top, text below.
-   */
   .hero {
     background: var(--g1); color: #fff;
     display: grid; grid-template-columns: 1fr 1fr; min-height: 500px;
@@ -278,19 +273,14 @@
   .footer-bottom a { color: rgba(255,255,255,.5); margin-left: 16px; }
   .footer-bottom a:hover { color: #fff; }
 
-  /* ─── CONTACT RACK ────────────────────────────────────────
-   * Fixed floating dock, bottom-left, transparent background.
-   * Desktop (≥ 961px): horizontal row.
-   * Mobile  (≤ 960px): vertical column.
-   * Smartsupp widget sits bottom-right (its own position).
-   * ──────────────────────────────────────────────────────── */
+  /* ─── CONTACT RACK ──────────────────────────────────────── */
   .contact-rack {
     position: fixed;
     bottom: 24px;
     left: 24px;
-    z-index: 9998;          /* just below Smartsupp's z-index */
+    z-index: 9998;
     display: flex;
-    flex-direction: row;    /* horizontal on large screens */
+    flex-direction: row;
     align-items: center;
     gap: 10px;
     background: transparent;
@@ -326,7 +316,6 @@
 
   /* ─── RESPONSIVE ──────────────────────────────────────── */
   @media (max-width: 960px) {
-    /* Contact rack: vertical column on mobile */
     .contact-rack {
       flex-direction: column;
       bottom: 20px;
@@ -336,18 +325,15 @@
     .contact-rack a { width: 46px; height: 46px; }
     .contact-rack img { width: 46px; height: 46px; }
 
-    /* Hero: single column; visual stacks on top of text */
     .hero {
       grid-template-columns: 1fr;
     }
-    /* hero-visual is first child in DOM → naturally appears on top */
     .hero-visual {
       min-height: 260px;
-      display: block; /* SHOW on mobile — was incorrectly hidden before */
+      display: block;
     }
     .hero-text { padding: 48px 28px; }
 
-    /* Other layout fixes */
     .about, .why, .cta-strip { grid-template-columns: 1fr; }
     .about-visual, .why-visual { min-height: 280px; display: block; }
     .stats { grid-template-columns: repeat(2,1fr); }
@@ -392,7 +378,7 @@
     background-clip: content-box;
   }
 
-  /* ─── SCROLL-REVEAL (blur ↔ clear) ───────────────────── */
+  /* ─── SCROLL-REVEAL ───────────────────────────────────── */
   .scroll-reveal {
     transition:
       filter 0.75s cubic-bezier(0.4, 0, 0.2, 1),
@@ -406,7 +392,7 @@
     opacity: 1;
   }
 
-  /* ─── GENTLE SHIMMER (on stable in-view sections) ─────── */
+  /* ─── GENTLE SHIMMER ──────────────────────────────────── */
   @keyframes gentleShimmer {
     0%   { opacity: 1;    filter: blur(0) brightness(1); }
     30%  { opacity: 0.91; filter: blur(0) brightness(1.03); }
@@ -417,10 +403,9 @@
     animation: gentleShimmer 4.5s ease-in-out infinite;
   }
 
-  /* ─── CONTACT RACK — WhatsApp & Gmail icon pulse ──────── */
+  /* ─── CONTACT RACK — icon pulse ──────────────────────── */
   .contact-rack a[href*="wa.me"],
   .contact-rack a[href^="mailto"] {
-    /* override the base transition */
     transition:
       transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1),
       opacity   0.22s ease,
@@ -432,7 +417,6 @@
     opacity: 0.82;
     filter: drop-shadow(0 6px 18px rgba(0,0,0,0.4));
   }
-  /* Idle idle pulse — slow breathe to draw attention */
   @keyframes iconBreathe {
     0%,100% { transform: scale(1);    opacity: 1; }
     50%      { transform: scale(1.08); opacity: 0.9; }
@@ -443,7 +427,7 @@
   }
   .contact-rack a[href*="wa.me"]:hover img,
   .contact-rack a[href^="mailto"]:hover img {
-    animation: none; /* stop breathe while hovered */
+    animation: none;
   }
 </style>
 </head>
@@ -469,12 +453,9 @@
   </nav>
 </header>
 
-<!-- HERO
-     DOM order: hero-visual FIRST → left col on desktop, top on mobile.
-     hero-text SECOND → right col on desktop, bottom on mobile. -->
+<!-- HERO -->
 <div class="hero scroll-reveal">
   <div class="hero-visual">
-    <!-- Replace hero-image.png with your actual image file -->
     <img src="images/hero-image.png" alt="Hero Image"
       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="img-placeholder" style="display:none">
@@ -508,7 +489,6 @@
 <!-- ABOUT -->
 <div class="about scroll-reveal" id="about">
   <div class="about-visual">
-    <!-- Replace about-image.jpg with your actual image file -->
     <img src="images/about-image.jpg" alt="About Us"
       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="img-placeholder" style="display:none">
@@ -553,7 +533,6 @@
     </div>
   </div>
   <div class="why-visual">
-    <!-- Replace why-image.jpg with your actual image file -->
     <img src="images/why-image.jpg" alt="Why Choose Us"
       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div class="img-placeholder" style="display:none">
@@ -755,7 +734,7 @@
     <h2>Find a vet near you today!</h2>
     <p>Visit our clinic or call us to book an appointment for your animal.</p>
   </div>
-  <a href="tel:+2340000000" class="btn outline">Call us now</a>
+  <a href="tel:+2348142532599" class="btn outline">Call us now</a>
 </div>
 
 <!-- FOOTER -->
@@ -789,9 +768,9 @@
     </div>
     <div class="footer-col">
       <h5>Contact Us</h5>
-      <a href="mailto:info@energyvet.com">info@energyvet.com</a>
-      <a href="tel:+2340000000">+234 000 0000</a>
-      <a href="#">Aba, Abia State, Nigeria</a>
+      <a href="mailto:vetdera@gmail.com">vetdera@gmail.com</a>
+      <a href="tel:+2348142532599">+234 814 253 2599</a>
+      <a href="#">No 10 Unity Estate, Abolodun, Lagos</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -804,28 +783,21 @@
 </footer>
 
 <!-- ─── CONTACT RACK ──────────────────────────────────────────────────────────
-     ▸ phone.svg   → delegates a phone call to the device via tel:
-     ▸ whatsapp.svg → opens WhatsApp with the number pre-loaded via wa.me
-     ▸ gmail.svg    → opens the device mail client via mailto:
-
-     Replace +2340000000 with your real number (digits only, no spaces/dashes)
-     and info@energyvet.com with your real email address.
-
-     Large screens  (≥ 961px): icons sit in a horizontal row, bottom-left.
-     Small screens  (≤ 960px): icons stack in a vertical column, bottom-left.
-     Smartsupp widget stays bottom-right — no overlap.
+     Phone, WhatsApp, and Gmail contact buttons.
+     Large screens (≥ 961px): horizontal row, bottom-left.
+     Small screens (≤ 960px): vertical column, bottom-left.
 ──────────────────────────────────────────────────────────────────────────── -->
 <div class="contact-rack" role="group" aria-label="Contact options">
 
-  <!-- PHONE — delegates to whatever the device uses for calls -->
-  <a href="tel:+2340000000"
+  <!-- PHONE -->
+  <a href="tel:+2348142532599"
      title="Call us"
      aria-label="Call us">
     <img src="images/phone.svg" alt="Call us">
   </a>
 
-  <!-- WHATSAPP — opens wa.me deep-link; works on mobile app & WhatsApp Web -->
-  <a href="https://wa.me/2340000000"
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/2348142532599"
      target="_blank"
      rel="noopener noreferrer"
      title="Chat on WhatsApp"
@@ -833,8 +805,8 @@
     <img src="images/whatsapp.svg" alt="WhatsApp">
   </a>
 
-  <!-- GMAIL / EMAIL — delegates to the device's default mail app -->
-  <a href="mailto:info@energyvet.com"
+  <!-- GMAIL / EMAIL -->
+  <a href="mailto:vetdera@gmail.com"
      title="Send us an email"
      aria-label="Send us an email">
     <img src="images/gmail.svg" alt="Email us">
@@ -873,7 +845,6 @@
       const el = entry.target;
       if (entry.isIntersecting) {
         el.classList.add('in-view');
-        /* After the reveal transition ends, add the shimmer */
         el.addEventListener('transitionend', function onReveal(evt) {
           if (evt.propertyName === 'filter') {
             el.classList.add('shimmer-on');
@@ -887,7 +858,7 @@
     });
   }, {
     root: null,
-    threshold: 0.08,   /* trigger when 8% of section is visible */
+    threshold: 0.08,
     rootMargin: '0px'
   });
 
@@ -895,8 +866,6 @@
 
   /* ── Page-load: first visible section clears after 120ms ── */
   window.addEventListener('DOMContentLoaded', () => {
-    // A tiny delay lets the browser paint the blurred state first
-    // so the user sees the blur → clear transition on the hero
     setTimeout(() => {
       revealEls.forEach(el => {
         const r = el.getBoundingClientRect();
